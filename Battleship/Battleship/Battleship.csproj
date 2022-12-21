@@ -9,10 +9,11 @@
 
   <ItemGroup>
     <None Remove="battleship.jpg" />
+    <None Remove="resources\battleship.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="battleship.jpg" />
+    <Resource Include="resources\battleship.jpg" />
   </ItemGroup>
 
 </Project>

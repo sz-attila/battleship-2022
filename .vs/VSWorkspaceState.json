@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Battleship",
+    "\\Battleship\\Battleship"
   ],
+  "SelectedNode": "\\Battleship\\Battleship\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

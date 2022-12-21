@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\c#\battleship-2022\Battleship\Battleship\App.xaml
-11407045341
+3927847948
 
-52116570472
+7205036936
 194618410957
-MainWindow.xaml;
+MainWindow.xaml;PlayerName2Window.xaml;PlayerNameWindow.xaml;
 
 False
 
