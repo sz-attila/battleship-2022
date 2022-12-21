@@ -24,5 +24,19 @@ namespace Battleship
         {
             InitializeComponent();
         }
+        private void VsAI_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VsPlayer_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Statistics_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
