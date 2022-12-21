@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jq5paqEQzQKJaHLjTYBxdMi3/SsK3MpvEoj+TNh/4DrHt/c+Sf7sXN7rg8UyaPiLbxppLfofJh1Cggat/NgxOg==",
+  "dgSpecHash": "7f7J7js1hL1qf+owMu3revweHUMhUth4c/sctc/XX1mSNLH6dJIHj2VnkIiRXuBvEMUWQ0ajdTIyhTEHO6j8lA==",
   "success": true,
-  "projectFilePath": "D:\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
+  "projectFilePath": "D:\\c#\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

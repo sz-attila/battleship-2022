@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="battleship.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="battleship.jpg" />
+  </ItemGroup>
+
 </Project>
