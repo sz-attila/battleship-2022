@@ -5,7 +5,7 @@
 namespace Battleship.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,8 @@ namespace Battleship.Migrations
                     Player2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rounds = table.Column<int>(type: "int", nullable: false),
                     Player1Hits = table.Column<int>(type: "int", nullable: false),
-                    Player2Hits = table.Column<int>(type: "int", nullable: false)
+                    Player2Hits = table.Column<int>(type: "int", nullable: false),
+                    Winner = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

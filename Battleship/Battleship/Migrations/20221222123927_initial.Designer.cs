@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Battleship.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    [Migration("20221221172936_Initial")]
-    partial class Initial
+    [Migration("20221222123927_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,10 @@ namespace Battleship.Migrations
 
                     b.Property<int>("Rounds")
                         .HasColumnType("int");
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -26,8 +26,4 @@
     <Resource Include="resources\battleship.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>
