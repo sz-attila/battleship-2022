@@ -15,5 +15,12 @@ namespace Battleship
 
             database.SaveChanges();
         }
+        public static void ClearDb()
+        {
+            using GameDbContext database = new();
+            database.Games.RemoveRange(database.Games);
+
+            database.SaveChanges();
+        }
     }
 }
