@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\battleship-2022\Battleship\Battleship\App.xaml
-4-35186930
+5-1045733079
 
-161177727199
+17-2087678876
 228-1992798203
-MainWindow.xaml;PlayerName2Window.xaml;PlayerNameWindow.xaml;ScoreboardWindow.xaml;
+GameWindow.xaml;MainWindow.xaml;PlayerName2Window.xaml;PlayerNameWindow.xaml;ScoreboardWindow.xaml;
 
-False
+True
 

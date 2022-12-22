@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="GameWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PlayerName2Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -13,6 +16,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="GameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PlayerName2Window.xaml">
       <SubType>Designer</SubType>
     </Page>
