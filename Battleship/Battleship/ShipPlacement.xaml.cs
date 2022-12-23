@@ -87,7 +87,9 @@ namespace Battleship
 
         private void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            GameWindow game = new(player1Name);
+            Close();
+            game.Show();
         }
     }
 }
