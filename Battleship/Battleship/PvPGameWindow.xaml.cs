@@ -23,12 +23,12 @@ namespace Battleship
         {
             InitializeComponent();
         }
-        private void surrendBtn_Click(object sender, RoutedEventArgs e)
+        private void SurrendBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void stats_Click(object sender, RoutedEventArgs e)
+        private void Stats_Click(object sender, RoutedEventArgs e)
         {
 
         }
