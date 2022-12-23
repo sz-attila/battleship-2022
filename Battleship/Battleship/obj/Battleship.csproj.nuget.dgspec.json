@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj": {}
+    "D:\\csharpbattleship\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj": {}
   },
   "projects": {
-    "D:\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj": {
+    "D:\\csharpbattleship\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
+        "projectUniqueName": "D:\\csharpbattleship\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
         "projectName": "Battleship",
-        "projectPath": "D:\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
-        "packagesPath": "C:\\Users\\szala\\.nuget\\packages\\",
-        "outputPath": "D:\\battleship-2022\\Battleship\\Battleship\\obj\\",
+        "projectPath": "D:\\csharpbattleship\\battleship-2022\\Battleship\\Battleship\\Battleship.csproj",
+        "packagesPath": "C:\\Users\\szaka\\.nuget\\packages\\",
+        "outputPath": "D:\\csharpbattleship\\battleship-2022\\Battleship\\Battleship\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\szala\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\szaka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
