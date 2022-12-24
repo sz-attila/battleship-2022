@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\battleship-2022\Battleship\Battleship\obj\Debug\net6.0-windows\
+D:\c#\battleship-2022\Battleship\Battleship\obj\Debug\net6.0-windows\
 Battleship
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-D:\battleship-2022\Battleship\Battleship\App.xaml
+D:\c#\battleship-2022\Battleship\Battleship\App.xaml
 7-1900730850
 
 21-1818715095
-194-1797456590
+228-1029651000
 GameWindow.xaml;MainWindow.xaml;PlayerName2Window.xaml;PlayerNameWindow.xaml;PvPGameWindow.xaml;ScoreboardWindow.xaml;ShipPlacement.xaml;
 
 True
