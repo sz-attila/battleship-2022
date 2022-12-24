@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -24,14 +23,14 @@ namespace Battleship
         private bool shipShadow = false;
         private bool shipHorizontal = false;
 
-        private char[,] battleshipPlayfield = new char[10, 10];
+        private char[,] battleshipPlayfield = new char[ROW_NUM, COL_NUM];
 
         private bool vsComputer;
         private bool player2PlaceShips = false;
         private string player1Name;
         private string player2Name;
 
-        private char[,] player1BattleshipPlayfield = new char[10, 10];
+        private char[,] player1BattleshipPlayfield = new char[ROW_NUM, COL_NUM];
         private Grid player1PlayfieldGrid;
 
         
@@ -353,8 +352,8 @@ namespace Battleship
             {
                 Fill = shipFillBrush
             };
-            var Y = playfield.Width / ROW_NUM;
-            var X = playfield.Height / COL_NUM;
+            double Y = playfield.Width / ROW_NUM;
+            double X = playfield.Height / COL_NUM;
             ship.Width = Y;
             ship.Height = X;
 
@@ -391,7 +390,7 @@ namespace Battleship
 
         private void ShipBtn(object sender, RoutedEventArgs e)
         {
-            var ShipButton = (Button)sender;
+            Button ShipButton = (Button)sender;
             selectedShip = ShipButton.Content.ToString();
 
             switch (selectedShip)
@@ -444,14 +443,7 @@ namespace Battleship
 
             playfield.Children.Clear();
 
-            //TODO: újra inicalizálás?
-            for (int row = 0; row < ROW_NUM; row++)
-            {
-                for (int col = 0; col < COL_NUM; col++)
-                {
-                    battleshipPlayfield[row, col] = '\0';
-                }
-            }
+            battleshipPlayfield = new char[ROW_NUM, COL_NUM];
         }
 
         private void SubmitBtn_Click(object sender, RoutedEventArgs e)
