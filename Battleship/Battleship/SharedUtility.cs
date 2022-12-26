@@ -18,7 +18,7 @@ namespace Battleship
         
         public static void EndGame(string player1, string player2, int rounds, int player1Hits, int player2Hits, string winner)
         {
-            _ = MessageBox.Show("Congratulations! {0} won!", winner);
+            _ = MessageBox.Show("Game Over!");
             DbHelper.InsertToDb(player1, player2, rounds, player1Hits, player2Hits, winner);
         }
 
@@ -87,7 +87,7 @@ namespace Battleship
 
         public static Rectangle ShipUnitSettings(bool isHit)
         {
-            Rectangle unit = new Rectangle();
+            Rectangle unit = new();
 
             if (isHit)
             {
@@ -138,13 +138,14 @@ namespace Battleship
         }
 
 
-        public static void RoundsLabelChange(Label roundsLabel, ref int playerChangeCounter)
+        public static void RoundsLabelChange(Label roundsLabel, ref int playerChangeCounter, ref int rounds)
         {
             playerChangeCounter++;
 
             if (playerChangeCounter % 2 == 0)
             {
-                roundsLabel.Content = Convert.ToInt32(roundsLabel.Content) + 1;
+                rounds++;
+                roundsLabel.Content = rounds;
             }
         }
 
