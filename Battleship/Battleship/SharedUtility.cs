@@ -22,18 +22,9 @@ namespace Battleship
             DbHelper.InsertToDb(player1, player2, rounds, player1Hits, player2Hits, winner);
         }
 
-        public static string WhichPlayerStart(string player1Name, string player2Name, bool player1Coming)
+        public static bool WhichPlayerStart()
         {
-            if (rnd.Next(0, 2) == 0)
-            {
-                player1Coming = true;
-                return player1Name;
-            }
-            else
-            {
-                player1Coming = false;
-                return player2Name;
-            }
+            return rnd.Next(0, 2) == 0;
         }
 
         public static void PlayerShipsLoad(Grid playfield, Grid table)
