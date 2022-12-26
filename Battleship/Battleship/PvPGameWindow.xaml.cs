@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Battleship
@@ -34,7 +27,7 @@ namespace Battleship
         private string player2Name;
 
         PvPGameWindow player2Window;
-        Random rnd = new Random();
+        Random rnd = new();
 
         public delegate string Hit(int cell);
         public event Hit OnHit;
@@ -173,12 +166,7 @@ namespace Battleship
 
         private bool IsHitShipUnit(int cell)
         {
-            if (char.IsDigit(myPlayfield[cell / rows, cell % columns]))
-            {
-                return true;
-            }
-
-            return false;
+            return char.IsDigit(myPlayfield[cell / rows, cell % columns]);
         }
 
         private void SetShipUnit(int cell, bool isHit, bool setLeftTable)
@@ -223,6 +211,8 @@ namespace Battleship
         {
             Rectangle hpUnit = new Rectangle();
             hpUnit.Fill = Brushes.Green;
+            hpUnit.RadiusX = 5;
+            hpUnit.RadiusY = 5;
             var Y = carrierHpGrid.Width;
             var X = carrierHpGrid.Height / shipLength;
             hpUnit.Width = Y;
@@ -234,7 +224,7 @@ namespace Battleship
         {
             if (e.ClickCount == 1)
             {
-                if (player1Coming && windowPlayer1 || !player1Coming && !windowPlayer1)
+                if ((player1Coming && windowPlayer1) || (!player1Coming && !windowPlayer1))
                 {
                     DeleteShadow();
                     shadowExists = false;
@@ -245,8 +235,8 @@ namespace Battleship
 
                     if (!shooted)
                     {
-                        string shipUnitName = this.OnHit(cell);
-
+                        string shipUnitName = OnHit(cell);
+                        
                         if (shipUnitName != "false")
                         {
                             SetShipUnit(cell, true, false);
@@ -329,12 +319,7 @@ namespace Battleship
 
         private bool IsCellShooted(int cell)
         {
-            if (enemyPlayfield[cell / rows, cell % columns] == 'T' || enemyPlayfield[cell / rows, cell % columns] == 'V')
-            {
-                return true;
-            }
-
-            return false;
+            return enemyPlayfield[cell / rows, cell % columns] is 'H' or 'M';
         }
 
         private void ShipHpDecrement(string shipUnitName)
@@ -355,6 +340,8 @@ namespace Battleship
                     break;
                 case "1":
                     destroyerHpGrid.Children.RemoveAt(destroyerHpGrid.Children.Count - 1);
+                    break;
+                default:
                     break;
             }
         }

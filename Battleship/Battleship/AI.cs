@@ -43,11 +43,14 @@ namespace Battleship
            {
                Fill = Brushes.BlanchedAlmond
            };
+            
            double x = playfield.Height / 10;
            double y = playfield.Width / 10;
+            
            ship.Height = x;
            ship.Width = y;
            ship.Visibility = Visibility.Hidden;
+            
            return ship;
         }
         public static void GenerateAItable(Random rnd, char[,] aiTable, Grid playfield)
@@ -56,14 +59,17 @@ namespace Battleship
            int randomX;
            int randomY;
            bool empty;
+            
            for (int i = 5; i > 0; i--)
            {
                empty = false;
                orient = rnd.Next(0, 2);
+                
                if (orient == 0)
                {
                    randomX = rnd.Next(0, 10);
                    randomY = rnd.Next(0, 10 - i + 1);
+                    
                    while (empty == false)
                    {
                         if ((randomY != 0 && char.IsDigit(aiTable[randomY - 1, randomX])) || (randomY + i - 1 != 9 && char.IsDigit(aiTable[randomY + i, randomX])))
@@ -79,6 +85,7 @@ namespace Battleship
                                 {
                                    randomX = rnd.Next(0, 10);
                                    randomY = rnd.Next(0, 10 - i + 1);
+                                    
                                    break;
                                 }
                                 else if (j == (i - 1))
@@ -88,11 +95,14 @@ namespace Battleship
                            }
                         }
                    }
+                   
                    for (int row = 0; row < i; row++)
                    {
                        Rectangle ship = CreateShip(i, playfield);
+                        
                        Grid.SetColumn(ship, row + randomY);
                        Grid.SetRow(ship, randomX);
+                        
                        aiTable[randomY + row, randomX] = Convert.ToChar(i.ToString());
                        playfield.Children.Add(ship);
                    }
