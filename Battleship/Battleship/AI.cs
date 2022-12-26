@@ -10,7 +10,7 @@ namespace Battleship
     {
         public static bool IsShootedCell(int x, int y, char[,] table)
         {
-            return table[x, y] is 'S' or 'H';
+            return table[x, y] is 'H' or 'M';
         }
 
         public static int GenerateShoot(Random rnd, char[,] table)
