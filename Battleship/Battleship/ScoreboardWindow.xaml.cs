@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Battleship
 {
@@ -21,6 +11,9 @@ namespace Battleship
     {
         private List<Game> AllGames { get; set; }
 
+        /// <summary>
+        /// Represents a window that displays a scoreboard of games.
+        /// </summary>
         public ScoreboardWindow()
         {
             InitializeComponent();
@@ -32,12 +25,14 @@ namespace Battleship
             GamesList.ItemsSource = AllGames;
 
         }
+        
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new();
             Close();
             main.Show();
         }
+        
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             DbHelper.ClearDb();

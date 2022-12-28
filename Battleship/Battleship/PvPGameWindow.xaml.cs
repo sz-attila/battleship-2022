@@ -21,25 +21,29 @@ namespace Battleship
         private char[,] enemyPlayfield = new char[10, 10];
         private bool player1Coming;
         private bool windowPlayer1;
-
         private int playerChangeCounter = 0;
-
         private string player1Name;
         private string player2Name;
         private int rounds = 1;
         private int player1Hits = 0;
         private int player2Hits = 0;
-
         PvPGameWindow player2Window;
         PvPGameWindow player1Window;
         Random rnd = new();
-
         public delegate string Hit(int cell);
         public event Hit OnHit;
-
         public delegate void CloseWindow();
         public event CloseWindow onCloseWindow;
 
+        /// <summary>
+        /// Represents a window for a player versus player (PvP) game.
+        /// </summary>
+        /// <param name="player1Name">The name of the first player.</param>
+        /// <param name="player1PlayfieldGrid">The playfield grid of the first player.</param>
+        /// <param name="player1Playfield">The playfield of the first player.</param>
+        /// <param name="player2Name">The name of the second player.</param>
+        /// <param name="player2PlayfieldGrid">The playfield grid of the second player.</param>
+        /// <param name="player2Playfield">The playfield of the second player.</param>
         public PvPGameWindow(string player1Name, Grid player1PlayfieldGrid, char[,] player1Playfield, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield)
         {
             InitializeComponent();
@@ -84,6 +88,15 @@ namespace Battleship
 
         }
 
+        /// <summary>
+        /// Represents a window for a player versus player (PvP) game.
+        /// </summary>
+        /// <param name="player1Name">The name of the first player.</param>
+        /// <param name="player2Name">The name of the second player.</param>
+        /// <param name="player2PlayfieldGrid">The playfield grid of the second player.</param>
+        /// <param name="player2Playfield">The playfield of the second player.</param>
+        /// <param name="player1Coming">A boolean value indicating whether the first player is coming first.</param>
+        /// <param name="player1Window">The window for the first player.</param>
         public PvPGameWindow(string player1Name, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield, bool player1Coming, PvPGameWindow player1Window)
         {
             InitializeComponent();
@@ -136,7 +149,11 @@ namespace Battleship
             }
         }
 
-       
+        /// <summary>
+        /// Processes a "shoot" action in a player versus player (PvP) game.
+        /// </summary>
+        /// <param name="cell">The cell being shot at.</param>
+        /// <returns>A string indicating whether the cell contained a ship unit. If the cell contained a ship unit, the string is the ship unit. Otherwise, the string is "false".</returns>
         public string OnShoot(int cell)
         {
             bool isHit = IsHitShipUnit(cell);
@@ -199,8 +216,6 @@ namespace Battleship
             return unit;
         }
 
-        
-
         private void OnGridMouseClick(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 1)
@@ -259,9 +274,7 @@ namespace Battleship
                 }
             }
         }
-
         
-
         private void HitsLabelChange()
         {
             if (windowPlayer1 && player1Coming)
@@ -307,9 +320,7 @@ namespace Battleship
         {
             return enemyPlayfield[cell / rows, cell % columns] is 'H' or 'M';
         }
-
         
-
         private void OnGridMouseOver(object sender, MouseEventArgs e) //ship shadow
         {
             int cell = SharedUtility.CalculateCell(rightTable);
@@ -351,14 +362,13 @@ namespace Battleship
             }
         }
 
-        
-
+        /// <summary>
+        /// Closes the window.
+        /// </summary>
         public void OnClose()
         {
             this.Close();
-        }
-
-        
+        }       
 
         private void SurrendBtn_Click(object sender, RoutedEventArgs e)
         {

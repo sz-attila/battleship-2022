@@ -16,24 +16,23 @@ namespace Battleship
         private const int COL_NUM = SharedUtility.COLUMNS;
         private Brush shadowFillBrush = Brushes.LightBlue;
         private Brush shipFillBrush = Brushes.DarkBlue;
-
         private string selectedShip = null;
         private char selectedShipUnit;
         private int calculatedCell = -1;
         private bool shipShadow = false;
         private bool shipHorizontal = false;
-
         private char[,] battleshipPlayfield = new char[ROW_NUM, COL_NUM];
-
         private bool vsComputer;
         private bool player2PlaceShips = false;
         private string player1Name;
         private string player2Name;
-
         private char[,] player1BattleshipPlayfield = new char[ROW_NUM, COL_NUM];
         private Grid player1PlayfieldGrid;
 
-        
+        /// <summary>
+        /// Constructs a `ShipPlacement` object for a game against a computer.
+        /// </summary>
+        /// <param name="player1Name">The name of the player.</param>
         public ShipPlacement(string player1Name)
         {
             InitializeComponent();
@@ -44,7 +43,11 @@ namespace Battleship
             SetTitlesForPlayer(player1Name);
         }
 
-        
+        /// <summary>
+        /// Constructs a `ShipPlacement` object for a game between two players.
+        /// </summary>
+        /// <param name="player1Name">The name of the first player.</param>
+        /// <param name="player2Name">The name of the second player.</param>
         public ShipPlacement(string player1Name, string player2Name)
         {
             InitializeComponent();
@@ -56,6 +59,13 @@ namespace Battleship
             SetTitlesForPlayer(player1Name);
         }
 
+        /// <summary>
+        /// Constructs a `ShipPlacement` object for a game between two players, where one player has already placed their ships and the other player is placing their ships.
+        /// </summary>
+        /// <param name="player1Name">The name of the first player.</param>
+        /// <param name="player2Name">The name of the second player.</param>
+        /// <param name="playfield">The playfield of the first player.</param>
+        /// <param name="battleshipPlayfield">The positions of the ships of the first player.</param>
         public ShipPlacement(string player1Name, string player2Name, Grid playfield, char[,] battleshipPlayfield)
         {
             InitializeComponent();

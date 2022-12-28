@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -21,7 +19,6 @@ namespace Battleship
         private int _player2Hits;
         private char[,] _aiTable = new char[10, 10];
         private char[,] _playerTable = new char[10, 10];
-
         private Random rnd = new();
         private bool shipVisibility;
         private int calculatedCell = -1;
@@ -31,6 +28,12 @@ namespace Battleship
         private bool up, down, left, right, con, isHit;
         private int randomX, randomY, firstX, firstY;
 
+        /// <summary>
+        /// Initializes a new instance of the GameWindow class.
+        /// </summary>
+        /// <param name="player1">The name of the first player.</param>
+        /// <param name="playfield">The game grid for the first player.</param>
+        /// <param name="playerTable">The game table for the first player.</param>
         public GameWindow(string player1, Grid playfield, char[,] playerTable)
         {
             InitializeComponent();
@@ -65,6 +68,7 @@ namespace Battleship
 
             return ship;
         }
+        
         private void AIHitsLabelChange()
         {
             _player2Hits++;
@@ -125,6 +129,7 @@ namespace Battleship
             return false;
             
         }
+        
         private bool Shoot(int randomX, int randomY, string direction)
         {
             switch (direction)
@@ -151,7 +156,6 @@ namespace Battleship
                 {
                     if (AI.IsPlayerUnit(randomX, randomY, _playerTable))
                     {
-                        //Debug.WriteLine("AI shooted at x:{0}, y:{1}", randomX, randomY);
                         ShootedCellChange(randomX, randomY, true);
                         PaintHitCell(randomX, randomY);
 
@@ -159,7 +163,6 @@ namespace Battleship
                     }
                     else
                     {
-                        //Debug.WriteLine("AI missed at x:{0}, y:{1}", randomX, randomY);
                         ShootedCellChange(randomX, randomY, false);
                         PaintMissCell(randomX, randomY);
 
@@ -176,6 +179,10 @@ namespace Battleship
                 return false;
             }
         }
+
+        /// <summary>
+        /// Performs the logic for the AI player's turn.
+        /// </summary>
         public void Logic()
         {
             
@@ -307,6 +314,7 @@ namespace Battleship
                 }
             }
         }
+        
         private void OnGridMouseOver(object sender, MouseEventArgs e)
         {
             int cell = SharedUtility.CalculateCell(rightTable);
@@ -328,7 +336,6 @@ namespace Battleship
             }
         }
 
-
         private void SurrendBtn_Click(object sender, RoutedEventArgs e)
         {
             DbHelper.InsertToDb(_player1Name, _player2Name, _rounds, _player1Hits, _player2Hits, _player2Name);
@@ -349,6 +356,7 @@ namespace Battleship
                 }
             }
         }
+        
         private void OnGridMouseClick(object sender, MouseButtonEventArgs e)
         {
             if (e.ClickCount == 1)
@@ -413,7 +421,6 @@ namespace Battleship
                         }
                     }
                 }
-
             }
         }
     }

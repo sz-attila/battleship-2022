@@ -3,6 +3,9 @@
 
 namespace Battleship
 {
+    /// <summary>
+    /// Represents a game between two players. Used for creating a Database schema.
+    /// </summary>
     public class Game
     {
         [Key]

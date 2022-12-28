@@ -6,13 +6,29 @@ using System.Windows.Shapes;
 
 namespace Battleship
 {
+    /// <summary>
+    /// A class for AI methods.
+    /// </summary>
     public static class AI
     {
+        /// <summary>
+        /// Determines if a cell in a game table has already been shot.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the cell.</param>
+        /// <param name="y">The y-coordinate of the cell.</param>
+        /// <param name="table">The game table.</param>
+        /// <returns>true if the cell has been shot, false otherwise.</returns>
         public static bool IsShootedCell(int x, int y, char[,] table)
         {
             return table[x, y] is 'H' or 'M';
         }
 
+        /// <summary>
+        /// Generates a random shoot on a game table.
+        /// </summary>
+        /// <param name="rnd">A Random object used to generate random coordinates.</param>
+        /// <param name="table">The game table.</param>
+        /// <returns>The index of the cell that was shot.</returns>
         public static int GenerateShoot(Random rnd, char[,] table)
         {
             int rndX;
@@ -28,15 +44,34 @@ namespace Battleship
             return (rndY * 10) + rndX;
         }
 
+        /// <summary>
+        /// Determines if a cell in a game table contains a player's unit.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the cell.</param>
+        /// <param name="y">The y-coordinate of the cell.</param>
+        /// <param name="table">The game table.</param>
+        /// <returns>true if the cell contains a player's unit, false otherwise.</returns>
         public static bool IsPlayerUnit(int x, int y, char[,] table)
         {
             return char.IsDigit(table[x, y]);
         }
 
+        /// <summary>
+        /// Determines if a cell is outside the boundaries of a game table.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the cell.</param>
+        /// <param name="y">The y-coordinate of the cell.</param>
+        /// <returns>true if the cell is outside the boundaries of the game table, false otherwise.</returns>
         public static bool DetectBorder(int x, int y)
         {
             return x is < 0 or > 9 || y is < 0 or > 9;
         }
+
+        /// <summary>
+        /// Creates a new ship for a game grid.
+        /// </summary>
+        /// <param name="playfield">The game grid.</param>
+        /// <returns>A new ship as a Rectangle object.</returns>
         public static Rectangle CreateShip(Grid playfield)
         {
            Rectangle ship = new()
@@ -53,6 +88,13 @@ namespace Battleship
             
            return ship;
         }
+
+        /// <summary>
+        /// Generates a game table for the AI player and displays it on a game grid.
+        /// </summary>
+        /// <param name="rnd">A Random object used to generate random coordinates and orientations for the ships.</param>
+        /// <param name="aiTable">The game table for the AI player.</param>
+        /// <param name="playfield">The game grid.</param>
         public static void GenerateAItable(Random rnd, char[,] aiTable, Grid playfield)
         {
            int orient;
