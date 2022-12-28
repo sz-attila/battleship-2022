@@ -176,9 +176,9 @@ namespace Battleship
                 return false;
             }
         }
-        public void Logic()
+        private void Logic()
         {
-            
+            //player1Coming = false;
             isHit = false;
             while (!player1Coming)
             {
