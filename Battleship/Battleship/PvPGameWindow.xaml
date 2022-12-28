@@ -7,14 +7,12 @@
         mc:Ignorable="d"
         Title="PvPGameWindow" Height="1000" Width="1800">
     <Window.Background>
-        <ImageBrush ImageSource="/resources/battleship.jpg" Stretch="UniformToFill" Opacity="0.5"/>
+        <ImageBrush ImageSource="/resources/battleship.jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="White" Opacity="0.7"/>
         </Grid.Background>
-        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -60,6 +58,8 @@
                 </Grid.RowDefinitions>
             </Grid>
 
+
+
             <Label Grid.Row="1" Grid.Column="1" Content="A  B  C  D  E  F  G  H  I  J" FontFamily="SimHei" FontWeight="Bold" FontSize="34.5px" Margin="250,50,10,510"  />
 
             <TextBlock Grid.Row="1" Grid.Column="1" Width="30px" Text="0 1 2 3 4 5 6 7 8 9" FontFamily="SimHei" FontWeight="Bold" FontSize="34px" Margin="0,105,440,0" TextWrapping="Wrap" />
@@ -92,9 +92,16 @@
                 </Grid.RowDefinitions>
             </Grid>
 
+
+
+
+
+
             <Grid Grid.Row="3" Grid.Column="0">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
 
@@ -109,8 +116,8 @@
                             <ColumnDefinition Width="4*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Width="250px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50">
-                            <Grid ShowGridLines="True" Name="carrierHpGrid" Height="46" VerticalAlignment="Top">
+                        <Border Grid.Column="0" Width="100px" Height="20px" BorderThickness="2" BorderBrush="Black">
+                            <Grid ShowGridLines="True" Name="carrierHpGrid"   >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -119,9 +126,10 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                             </Grid>
+
                         </Border>
 
-                        <Border Grid.Column="1" Width="200px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50">
+                        <Border Grid.Column="1" Width="80px" Height="20px" BorderThickness="2" BorderBrush="Black">
                             <Grid ShowGridLines="True" Name="battleshipHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -133,14 +141,46 @@
                         </Border>
                     </Grid>
 
-                    <Grid Grid.Row="3">
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="250px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50" Background="#FF38BBE2" >
+                            <Grid ShowGridLines="True" Name="a" Height="46" VerticalAlignment="Top" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+
+                        </Border>
+
+                        <Border Grid.Column="1" Width="200px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50" Background="#FF38BBE2">
+                            <Grid ShowGridLines="True" Name="b">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+
+                    <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"/>
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Width="150px" Height="50px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Right" CornerRadius="50,25,25,50">
+                        <Border Grid.Column="0" Width="60px" Height="20px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Right" Margin="0,0,45,0">
                             <Grid ShowGridLines="True" Name="cruiserHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -150,7 +190,7 @@
                             </Grid>
                         </Border>
 
-                        <Border Grid.Column="1" Width="100px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50">
+                        <Border Grid.Column="1" Width="40px" Height="20px" BorderThickness="2" BorderBrush="Black" >
                             <Grid ShowGridLines="True" Name="submarineHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -159,8 +199,45 @@
                             </Grid>
                         </Border>
 
-                        <Border Grid.Column="2" Width="50px" Height="50px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" CornerRadius="50,25,25,50">
+                        <Border Grid.Column="2" Width="20px" Height="20px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="15,0,0,0">
                             <Grid ShowGridLines="True" Name="destroyerHpGrid" HorizontalAlignment="Left" Width="46">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="150px" Height="50px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Right" CornerRadius="50,25,25,50" Background="#FF38BBE2">
+                            <Grid ShowGridLines="True" Name="f">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="1" Width="100px" Height="50px" BorderThickness="2" BorderBrush="Black" CornerRadius="50,25,25,50" Background="#FF38BBE2">
+                            <Grid ShowGridLines="True" Name="e">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="2" Width="50px" Height="50px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" CornerRadius="50,10,10,50" Background="#FF38BBE2">
+                            <Grid ShowGridLines="True" Name="d" HorizontalAlignment="Left" Width="46">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
@@ -206,16 +283,17 @@
                         <Label Grid.Column="3" x:Name="player2HitsLabel" Content="0" FontFamily="SimHei" FontWeight="Bold" FontSize="26px"/>
                     </Grid>
                     <Grid Grid.Row="2">
-                        <Label Grid.Row="6" x:Name="playerComingLabel" Content="Player 1/2 is coming" FontFamily="SimHei" FontWeight="Bold" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Label Grid.Row="6" x:Name="playerComingLabel" Content="Player 1/2 is coming" FontFamily="SimHei" FontWeight="Bold" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkBlue"/>
 
                     </Grid>
                     <Grid  Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
-                            
+
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Content="Surrend"  Width="150px" Height="50px" Margin="5" Background="red" FontFamily="Segoe UI Semibold" FontSize="30" Click="SurrendBtn_Click" x:Name="surrendBtn"/>
+                        <Button Grid.Column="0" Content="Surrend"  Width="150px" Height="50px" Margin="5" Background="#FF38BBE2" FontFamily="Segoe UI Semibold" FontSize="30" Click="SurrendBtn_Click" x:Name="surrendBtn"/>
+
 
                     </Grid>
                 </Grid>

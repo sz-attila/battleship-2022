@@ -205,7 +205,7 @@ namespace Battleship
             }
             else
             {
-                unit.Fill = Brushes.LightGray;
+                unit.Fill = Brushes.DarkGray;
             }
 
             var Y = unit.Width / rows;
@@ -243,10 +243,13 @@ namespace Battleship
                             if (player1Hits == 15)
                             {
                                 SharedUtility.EndGame(player1Name, player2Name, rounds, player1Hits, player2Hits, player1Name);
+                                Ended();
+                                
                             }
                             else if (player2Hits == 15)
                             {
                                 SharedUtility.EndGame(player1Name, player2Name, rounds, player1Hits, player2Hits, player2Name);
+                                Ended();
                             }
                         }
                         else
@@ -280,27 +283,27 @@ namespace Battleship
             if (windowPlayer1 && player1Coming)
             {
                 player1Hits++;
-                player1HitsLabel.Content = player1Hits;
-                //player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
+                //player1HitsLabel.Content = player1Hits;
+                player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
             }
             else if (!windowPlayer1 && !player1Coming)
             {
                 player2Hits++;
-                player2HitsLabel.Content = player2Hits++;
-                //player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
+                //player2HitsLabel.Content = player2Hits++;
+                player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
             }
 
             if (windowPlayer1 && !player1Coming)
             {
                 player2Hits++;
-                player2HitsLabel.Content = player2Hits++;
-                //player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
+                //player2HitsLabel.Content = player2Hits++;
+                player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
             }
             else if (!windowPlayer1 && player1Coming)
             {
                 player1Hits++;
-                player1HitsLabel.Content = player1Hits;
-                //player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
+                //player1HitsLabel.Content = player1Hits;
+                player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
             }
         }
 
@@ -344,7 +347,7 @@ namespace Battleship
         private Rectangle ShadowUnitSettings()
         {
             var shadow = new Rectangle();
-            shadow.Fill = Brushes.LightGray;
+            shadow.Fill = Brushes.DarkGray;
             var Y = rightTable.Width / rows;
             var X = rightTable.Height / columns;
             shadow.Width = Y;
@@ -371,6 +374,28 @@ namespace Battleship
         }       
 
         private void SurrendBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (windowPlayer1)
+            {
+                DbHelper.InsertToDb(player1Name, player2Name, rounds, player1Hits, player2Hits, player2Name);
+                MainWindow main = new();
+                Close();
+                player2Window.Close();
+                main.Show();
+            }
+            else
+            {
+                DbHelper.InsertToDb(player1Name, player2Name, rounds, player1Hits, player2Hits, player1Name);
+
+                this.onCloseWindow();
+                MainWindow main = new();
+                Close();
+
+                main.Show();
+            }
+        }
+
+        private void Ended()
         {
             if (windowPlayer1)
             {
