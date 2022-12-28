@@ -321,7 +321,7 @@ namespace Battleship
 
         private bool IsCellShooted(int cell)
         {
-            return enemyPlayfield[cell / rows, cell % columns] is 'H' or 'M';
+            return enemyPlayfield[cell / rows, cell % columns] is 'H' or 'M' or 'T';
         }
         
         private void OnGridMouseOver(object sender, MouseEventArgs e) //ship shadow
